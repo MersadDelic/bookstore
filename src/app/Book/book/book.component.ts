@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
+import {BookService} from '../book.service';
+import {Subscription} from 'rxjs';
+
 
 @Component({
   selector: 'app-book',
@@ -8,10 +11,12 @@ import {Book} from '../book';
 })
 export class BookComponent implements OnInit {
 
-  constructor() {
+  constructor(private bookService: BookService) {
   }
 
-  // HARDKODIRANE KNJIGE //
+  bookList: Book[] = [];
+
+  /*
   bookList: Book[] =
     [
       {
@@ -32,14 +37,14 @@ export class BookComponent implements OnInit {
       },
 
 
-    ];
+    ];*/
 
   ngOnInit(): void {
     this.getBookList();
   }
 
-  getBookList(): Book[] {
-    return this.bookList;
+  getBookList(): Subscription {
+    return this.bookService.getAllBooks();
   }
 
   /* getAvailableBooks(): Book[] {
