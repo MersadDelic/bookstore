@@ -1,1 +1,19 @@
-<p>book works!</p>
+<table class="table table-striped" style="margin-top: 50px">
+  <thead>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col"><h4> Book Id </h4></th>
+    <th scope="col"><h4> Book title </h4></th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let books of bookList" class="home-main-row">
+    <th scope="row"></th>
+    <td><h5>{{ books.id }}</h5></td>
+    <td><h5>{{ books.title }}</h5></td>
+  </tr>
+
+
+  </tbody>
+</table>

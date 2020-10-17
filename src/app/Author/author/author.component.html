@@ -1,4 +1,25 @@
-<!-- ADD BUDGET-->
+<div class="merso">
+
+  <button type="button" class="btn btn-primary" style="margin-top: 20px;"
+          data-toggle="modal"
+          data-target="#addTransaction">Add Author
+  </button>
+</div>
+
+<div style="width: 500px; position: relative; left: 25%; top:50px" class="list-group">
+  <h4 class="list-group-item list-group-item-action active">
+    All authors
+  </h4>
+  <div *ngFor="let authors of authorList">
+    <a style="font-size: 20px; font-weight: bold; color: #295b90;"
+       routerLink="/author/{{ authors.id }}" class="list-group-item list-group-item-action">
+      {{ authors.name }}</a>
+  </div>
+
+</div>
+
+
+<!-- ADD AUTHOR-->
 <div class="modal fade" id="addTransaction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
   <div class="modal-dialog" role="document">

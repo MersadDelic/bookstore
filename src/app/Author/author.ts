@@ -1,7 +1,7 @@
 export class Author {
-  id?:number
-name: string;
-address: string;
-url?: string
+  id?: number;
+  name: string;
+  address: string;
+  url?: string;
 
 }
