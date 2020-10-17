@@ -15,13 +15,23 @@ export class BookComponent implements OnInit {
   bookList: Book[] =
     [
       {
-        id: 1,
-        title: 'Dolina Vukova'
+        author_name: 'Mato Lovrak',
+        title: 'Vlak u snijegu'
       },
       {
-        id: 2,
-        title: 'Vlak u snijegu'
-      }
+        author_name: 'Mak Dizdar',
+        title: 'Kameni spavač'
+      },
+      {
+        author_name: 'Zapisi o gradovima',
+        title: 'Ćamil Sijarić'
+      },
+      {
+        author_name: 'Lewis Carroll',
+        title: 'Alisa u zemlji čuda '
+      },
+
+
     ];
 
   ngOnInit(): void {
