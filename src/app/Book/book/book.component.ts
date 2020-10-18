@@ -46,7 +46,4 @@ export class BookComponent implements OnInit {
   getBookList(): Subscription {
     return this.bookService.getAllBooks();
   }
-
-  /* getAvailableBooks(): Book[] {
-     return this.bookService.getBookList();*/
 }

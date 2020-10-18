@@ -17,7 +17,7 @@ export class BookService {
     return this.http.get(this.booksUrl)
       .subscribe(
         data => console.log('Lista knjiga: ' + JSON.stringify(data)),
-        error => console.log('Greska pri prikazu knjiga: ' + error.error));
+        error => console.log('Greska pri prikazu knjiga: ' + error));
     /* .pipe(
        tap(data => console.log('All: ' + JSON.stringify(data))),
        catchError(this.handleError)*/
