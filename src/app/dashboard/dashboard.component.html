@@ -1,5 +1,5 @@
 <H1>ŽANROVI</H1>
-<div class="row home-main-row" style="margin: auto">
+<div class="row home-main-row" style="margin: auto; width: 70%">
 
 
   <a [routerLink]="['/dashboard/budgetlist']"
@@ -19,9 +19,10 @@
      routerLinkActive="router-link-active"
      class="btn btn-success">Romani<i class="fas fa-user-plus"></i> </a>
 
+  <a [routerLink]="['/bookList']" style="margin-left: 55px"
+     routerLinkActive="router-link-active"
+     class="btn btn-danger">Books<i class="fas fa-user-plus"></i> </a>
 
 </div>
 
-<a [routerLink]="['/bookList']" style="margin-left: 15px"
-   routerLinkActive="router-link-active"
-   class="btn btn-success">Books<i class="fas fa-user-plus"></i> </a>
+
