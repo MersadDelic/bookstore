@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
 import {BookService} from '../book.service';
-import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -43,7 +42,10 @@ export class BookComponent implements OnInit {
     this.getBookList();
   }
 
-  getBookList(): Subscription {
-    return this.bookService.getAllBooks();
+  getBookList(): void {
+    this.bookService.getAllBooks().subscribe(
+      res => this.bookList = res,
+      error => console.log(error)
+    );
   }
 }

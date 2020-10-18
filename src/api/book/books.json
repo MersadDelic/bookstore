@@ -1,18 +1,18 @@
 [
   {
-    "author_name": "Mato Lovrak",
+    "authorName": "Mato Lovrak",
     "title": "Vlak u snijegu"
   },
   {
-    "author_name": "Mak Dizdar",
+    "authorName": "Mak Dizdar",
     "title": "Kameni spavač"
   },
   {
-    "author_name": "Zapisi o gradovima",
-    "title": "Ćamil Sijarić"
+    "authorName": "Ćamil Sijarić",
+    "title": "Zapisi o gradovima"
   },
   {
-    "author_name": "Lewis Carroll",
+    "authorName": "Lewis Carroll",
     "title": "Alisa u zemlji čuda "
   }
 ]
