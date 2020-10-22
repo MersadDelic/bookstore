@@ -7,4 +7,6 @@ export class Book {
   year?: number;
   title: string;
   price?: string;
+  description: string;
+  imageName: string;
 }

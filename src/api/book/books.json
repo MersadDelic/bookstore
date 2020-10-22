@@ -1,18 +1,34 @@
-[
-  {
-    "authorName": "Mato Lovrak",
-    "title": "Vlak u snijegu"
-  },
-  {
-    "authorName": "Mak Dizdar",
-    "title": "Kameni spavač"
-  },
-  {
-    "authorName": "Ćamil Sijarić",
-    "title": "Zapisi o gradovima"
-  },
-  {
-    "authorName": "Lewis Carroll",
-    "title": "Alisa u zemlji čuda "
-  }
+ [
+   {
+     "id": 1,
+     "authorName": "Mato Lovrak",
+     "title": "Vlak u snijegu",
+     "price": 25,
+     "description": "Dječji roman o izletu seoske djece u grad i vlaku zarobljenom u snijegu.",
+     "imageName": "/assets/images/vlak.jpg"
+   },
+   {
+     "id": 2,
+     "authorName": "Mak Dizdar",
+     "title": "Kameni spavač",
+     "price": 15,
+     "description": "“Kameni spavač” Maka Dizdara, izdan 1966. godine, smatra se jednom od najboljih zbirki pjesama 20. stoljeća. .",
+     "imageName": "/assets/images/kameni.jpg"
+   },
+   {
+     "id": 3,
+     "authorName": "Ćamil Sijarić",
+     "title": "Zapisi o gradovima",
+     "price": 18,
+     "description": "Obilazeći gradove kroz ove literarne uratke, čitatelj može zorno predočiti posebnu atmosferu koja grad čini onim što jest. ",
+     "imageName": "/assets/images/zapis.jpg"
+   },
+   {
+     "id": 4,
+     "authorName": "Lewis Carroll",
+     "title": "Alisa u zemlji čuda ",
+     "price": 12,
+     "description": "Alisa u zemlji čudesa jedno je od najpoznatijih djela Lewisa Carrolla, engleskog književnika. ",
+     "imageName": "/assets/images/ali.jpg"
+   }
 ]

@@ -13,6 +13,7 @@ export class BookComponent implements OnInit {
   constructor(private bookService: BookService) {
   }
 
+  book: Book = new Book();
   bookList: Book[] = [];
 
   /*
@@ -40,12 +41,24 @@ export class BookComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBookList();
+
   }
 
   getBookList(): void {
     this.bookService.getAllBooks().subscribe(
-      res => this.bookList = res,
-      error => console.log(error)
+      res => {
+        this.bookList = res;
+      },
+      error1 => console.log(error1)
     );
   }
+
+
+  /*saveBook(): void {
+    this.bookService.saveNewBook(this.book)
+      .subscribe(
+      createdBook => this.bookList.push(createdBook),
+      error2 => console.log(error2),
+    );
+  }*/
 }

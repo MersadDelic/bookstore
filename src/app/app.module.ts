@@ -10,6 +10,7 @@ import {AuthorComponent} from './Author/author/author.component';
 import {PublisherComponent} from './Publisher/publisher/publisher.component';
 import {BookComponent} from './Book/book/book.component';
 import {HttpClientModule} from '@angular/common/http';
+import {BookdetailsComponent} from './Book/bookdetails/bookdetails.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {HttpClientModule} from '@angular/common/http';
     DashboardComponent,
     AuthorComponent,
     PublisherComponent,
-    BookComponent
+    BookComponent,
+    BookdetailsComponent
   ],
     imports: [
       BrowserModule,

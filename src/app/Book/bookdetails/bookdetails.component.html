@@ -1,0 +1,62 @@
+<div class="container bcontent">
+  <div class="card-group">
+    <div class="card">
+      <!-- <img class="card-img-top" src="/assets/images/vlak%20u%20snijegu.jpg" alt="Suresh Dasari Card">
+       <div>{{book.imageName}}</div>-->
+      <img src="{{book.imageName}}">
+      <!--  <div>{{book.imageName}}</div>-->
+      <div class="card-body">
+        <h5 class="card-title">"{{book.title | uppercase}}"</h5>
+        <p class="card-text">{{book.description}}</p>
+      </div>
+    </div>
+    <div class="bdetails" *ngIf="book">
+
+      <h3>"{{book.title | uppercase}}" </h3> <br>
+      <div><span><h4>Author name: </h4></span>
+        <p class="pdetail">{{book.authorName}}</p></div>
+      <div><span><h4>Book price: </h4></span>
+        <p class="pdetail">{{book.price}} KM</p></div>
+
+    </div>
+  </div>
+</div>
+<!--
+
+<div class="container bcontent">
+  <h2>Bootstrap Card Groups</h2>
+  <hr />
+  <div class="card-group">
+    <div class="card">
+      <img class="card-img-top" src="/images/defaultimg.png" alt="Suresh Dasari Card">
+      <div class="card-body">
+        <h5 class="card-title">Suresh Dasari</h5>
+        <p class="card-text">Suresh Dasari is a founder and technical lead developer in tutlane.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="/images/defaultimg.png" alt="Suresh Dasari Card">
+      <div class="card-body">
+        <h5 class="card-title">Suresh Dasari</h5>
+        <p class="card-text">Suresh Dasari is a founder and technical lead developer in tutlane.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">3 mins ago</small>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="/images/defaultimg.png" alt="Suresh Dasari Card">
+      <div class="card-body">
+        <h5 class="card-title">Suresh Dasari</h5>
+        <p class="card-text">Suresh Dasari is a founder and technical lead developer in tutlane.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">3 mins ago</small>
+      </div>
+    </div>
+  </div>
+</div>
+-->

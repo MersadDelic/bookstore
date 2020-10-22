@@ -8,11 +8,63 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let books of bookList" class="home-main-row">
+  <tr *ngFor="let book of bookList" class="home-main-row">
     <th scope="row"></th>
-    <td><h6>{{ books.authorName }}</h6></td>
-    <td><h6>{{ books.title }}</h6></td>
+    <td><a routerLink="/book/{{ book.id }}" class="list-group-item list-group-item-action">
+      {{ book.authorName }} </a>
+    <td><a class="list-group-item list-group-item-action">{{ book.title }}</a></td>
   </tr>
+
 
   </tbody>
 </table>
+
+
+<div class="merso">
+  <button type="button" class="btn btn-primary" style="margin-top: 20px;"
+          data-toggle="modal"
+          data-target="#addBook">Add Book
+  </button>
+</div>
+
+<!-- ADD AUTHOR-->
+<div class="modal fade" id="addBook" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <!--HEADER-->
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Book</h5>
+        <button class="close" id="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      <!--BODY-->
+      <div class="modal-body">
+        <form>
+
+          <div class="form-group">
+            <label for="name">Author Name</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="book.authorName" name="name">
+          </div>
+
+          <div class="form-group">
+            <label for="address">Title</label>
+            <input type="text" class="form-control" id="address" required [(ngModel)]="book.authorName" name="address">
+          </div>
+
+
+        </form>
+        <!--FOOTER-->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btn_podnesi_zahtjev" data-dismiss="modal"
+                  (click)="saveBook()">OK
+          </button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
