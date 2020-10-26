@@ -2,7 +2,7 @@ export class Book {
   id?: number;
   ISBN?: string;
   publisherName?: string;
-  authorName: string;
+  authorName: number;
   authorAddress?: string;
   year?: number;
   title: string;

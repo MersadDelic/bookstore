@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
 import {BookService} from '../book.service';
+import {Author} from '../../Author/author';
+import {AuthorService} from '../../Author/author.service';
 
 
 @Component({
@@ -10,11 +12,13 @@ import {BookService} from '../book.service';
 })
 export class BookComponent implements OnInit {
 
-  constructor(private bookService: BookService) {
+  constructor(private bookService: BookService, private authorService: AuthorService) {
   }
 
   book: Book = new Book();
-  bookList: Book[] = [];
+  bookList: Book[];
+  authorId: number;
+  authorList: Author[] = [];
 
   /*
   bookList: Book[] =
@@ -40,8 +44,20 @@ export class BookComponent implements OnInit {
     ];*/
 
   ngOnInit(): void {
-    this.getBookList();
 
+
+    this.getBookList();
+    this.getAuthors();
+
+  }
+
+  getAuthors(): void {
+    this.authorService.getAllAuthors().subscribe(
+      res => {
+        this.authorList = res;
+      },
+      error1 => console.log(error1)
+    );
   }
 
   getBookList(): void {
@@ -54,11 +70,16 @@ export class BookComponent implements OnInit {
   }
 
 
-  /*saveBook(): void {
+  saveBook(): void {
+    this.book.authorName = this.authorId;
     this.bookService.saveNewBook(this.book)
       .subscribe(
-      createdBook => this.bookList.push(createdBook),
-      error2 => console.log(error2),
-    );
-  }*/
+        createdBook => {
+          this.book = createdBook;
+          console.log(createdBook);
+        },
+        error => console.log(error),
+      );
+
+  }
 }

@@ -1,4 +1,11 @@
-<table class="table table-striped" style="margin-top: 50px; ">
+<div class="merso">
+  <button type="button" class="btn btn-info" style="margin-top: 20px;"
+          data-toggle="modal"
+          data-target="#addBook">Add Book
+  </button>
+</div>
+
+<table class="table table-striped" style="margin-top: 50px; width: 40%; border-radius: 10px !Important">
   <thead>
   <tr>
     <th scope="col"></th>
@@ -8,11 +15,13 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let book of bookList" class="home-main-row">
+  <tr *ngFor="let book of bookList">
     <th scope="row"></th>
-    <td><a routerLink="/book/{{ book.id }}" class="list-group-item list-group-item-action">
-      {{ book.authorName }} </a>
-    <td><a class="list-group-item list-group-item-action">{{ book.title }}</a></td>
+    <td>
+      <a routerLink="/book/{{ book.id }}" class="btn btn-outline-secondary">
+        {{ book.authorName }}
+      </a>
+    <td> {{ book.title }}</td>
   </tr>
 
 
@@ -20,12 +29,7 @@
 </table>
 
 
-<div class="merso">
-  <button type="button" class="btn btn-primary" style="margin-top: 20px;"
-          data-toggle="modal"
-          data-target="#addBook">Add Book
-  </button>
-</div>
+
 
 <!-- ADD AUTHOR-->
 <div class="modal fade" id="addBook" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -46,20 +50,22 @@
         <form>
 
           <div class="form-group">
-            <label for="name">Author Name</label>
-            <input type="text" class="form-control" id="name" required [(ngModel)]="book.authorName" name="name">
+            <label for="name">Book title</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="book.title" name="name">
           </div>
+
 
           <div class="form-group">
-            <label for="address">Title</label>
-            <input type="text" class="form-control" id="address" required [(ngModel)]="book.authorName" name="address">
+            <label for="author">Select author</label>
+            <select [(ngModel)]="authorId" class="form-control" name="author" id="author">
+              <option *ngFor="let author of authorList" [ngValue]="author.id">{{author.name}}</option>
+            </select>
           </div>
-
 
         </form>
         <!--FOOTER-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="btn_podnesi_zahtjev" data-dismiss="modal"
+          <button type="button" class="btn btn-info" id="btn" data-dismiss="modal"
                   (click)="saveBook()">OK
           </button>
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>

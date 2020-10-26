@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {Book} from './book';
 import {catchError, map, tap} from 'rxjs/operators';
@@ -9,7 +9,14 @@ import {catchError, map, tap} from 'rxjs/operators';
 })
 export class BookService {
   private booksUrl = 'api/book/books.json';
+  private bookApi = 'api/book/book.json';
   bookList: Book[] = [];
+  book: Book;
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
   constructor(private http: HttpClient) {
   }
@@ -21,19 +28,19 @@ export class BookService {
         catchError((err) => throwError(err)));
   }
 
-  /*saveNewBook(book: Book): Observable<Book> {
-  return this.http.post<Book>(this.bookApi + `new`, book); // ovo nako  //
+  saveNewBook(book: Book): Observable<Book> {
+    return this.http.post<Book>(this.booksUrl, +JSON.stringify(book), this.httpOptions)
+      .pipe(
+        tap(data => console.log(data)),
+        catchError((err) => throwError(err))
+      );
+  }
 
-  }*/
-
-  /*getBookById(id: number): Observable<Book> {
-    return of(this.booksUrl.data.find(book => book.id === id));
-  }*/
 
   getBookById(id: number): Observable<Book> {
-    return this.http.get<Book>(this.booksUrl)
+    return this.http.get<Book[]>(this.booksUrl)
       .pipe(
-        map(data => data.find(book => book.id === id)),
+        map((books: Book[]) => books.find(book => book.id === id)),
         catchError((err) => throwError(err)));
   }
 }

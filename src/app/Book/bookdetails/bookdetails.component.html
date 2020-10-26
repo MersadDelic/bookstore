@@ -1,62 +1,30 @@
-<div class="container bcontent">
+<div *ngIf="book" class="container bcontent" style="width: 40%">
+
+  <hr/>
   <div class="card-group">
     <div class="card">
-      <!-- <img class="card-img-top" src="/assets/images/vlak%20u%20snijegu.jpg" alt="Suresh Dasari Card">
-       <div>{{book.imageName}}</div>-->
-      <img src="{{book.imageName}}">
-      <!--  <div>{{book.imageName}}</div>-->
+      <img class="card-img-top" [src]="book.imageName">
       <div class="card-body">
-        <h5 class="card-title">"{{book.title | uppercase}}"</h5>
+        <h5 class="card-title">{{book.title }}</h5>
         <p class="card-text">{{book.description}}</p>
       </div>
+      <div class="card-footer">
+        <small class="text-muted">Image & Description</small>
+      </div>
     </div>
-    <div class="bdetails" *ngIf="book">
 
-      <h3>"{{book.title | uppercase}}" </h3> <br>
-      <div><span><h4>Author name: </h4></span>
-        <p class="pdetail">{{book.authorName}}</p></div>
-      <div><span><h4>Book price: </h4></span>
-        <p class="pdetail">{{book.price}} KM</p></div>
 
-    </div>
-  </div>
-</div>
-<!--
-
-<div class="container bcontent">
-  <h2>Bootstrap Card Groups</h2>
-  <hr />
-  <div class="card-group">
     <div class="card">
-      <img class="card-img-top" src="/images/defaultimg.png" alt="Suresh Dasari Card">
       <div class="card-body">
-        <h5 class="card-title">Suresh Dasari</h5>
-        <p class="card-text">Suresh Dasari is a founder and technical lead developer in tutlane.</p>
+        <h5 class="card-title">"{{book.title}}"</h5>
+        <hr/>
+        <h6 class="card-text"><b>{{book.authorName}} (Author)</b></h6>
+
+        <h5 class="card-text1">Book price: {{book.price}} BAM</h5>
       </div>
       <div class="card-footer">
-        <small class="text-muted">3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="/images/defaultimg.png" alt="Suresh Dasari Card">
-      <div class="card-body">
-        <h5 class="card-title">Suresh Dasari</h5>
-        <p class="card-text">Suresh Dasari is a founder and technical lead developer in tutlane.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="/images/defaultimg.png" alt="Suresh Dasari Card">
-      <div class="card-body">
-        <h5 class="card-title">Suresh Dasari</h5>
-        <p class="card-text">Suresh Dasari is a founder and technical lead developer in tutlane.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">3 mins ago</small>
+        <small class="text-muted">Title & Author's name | &#160; Price</small>
       </div>
     </div>
   </div>
 </div>
--->
