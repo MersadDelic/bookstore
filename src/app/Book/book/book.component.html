@@ -11,27 +11,23 @@
     <th scope="col"></th>
     <th scope="col"><h4> Author name </h4></th>
     <th scope="col"><h4> Book title </h4></th>
-
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let book of bookList">
     <th scope="row"></th>
     <td>
-      <a routerLink="/book/{{ book.id }}" class="btn btn-outline-secondary">
+      <a routerLink="/bookList/{{ book.id }}" class="btn btn-outline-secondary">
         {{ book.authorName }}
       </a>
     <td> {{ book.title }}</td>
   </tr>
-
-
   </tbody>
 </table>
 
 
+<!-- ADD BOOK-->
 
-
-<!-- ADD AUTHOR-->
 <div class="modal fade" id="addBook" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -50,15 +46,19 @@
         <form>
 
           <div class="form-group">
-            <label for="name">Book title</label>
-            <input type="text" class="form-control" id="name" required [(ngModel)]="book.title" name="name">
+            <label for="name1">Book title</label>
+            <input type="text" class="form-control" id="name1" required [(ngModel)]="book.title" name="name1">
           </div>
-
-
+          <!------------------------------------------------------------------------------>
+          <button type="button" class="btn btn-primary" style="margin-top: 20px;"
+                  data-toggle="modal"
+                  data-target="#addAuthor">Add Author
+          </button>
+          <!------------------------------------------------------------------------------>
           <div class="form-group">
-            <label for="author">Select author</label>
+            <label for="author">Or select from the list below</label>
             <select [(ngModel)]="authorId" class="form-control" name="author" id="author">
-              <option *ngFor="let author of authorList" [ngValue]="author.id">{{author.name}}</option>
+              <option *ngFor="let author of authorList" [ngValue]="author.name">{{author.name}}</option>
             </select>
           </div>
 
@@ -66,11 +66,58 @@
         <!--FOOTER-->
         <div class="modal-footer">
           <button type="button" class="btn btn-info" id="btn" data-dismiss="modal"
-                  (click)="saveBook()">OK
+                  (click)="saveBook()">Save
           </button>
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
         </div>
       </div>
     </div>
   </div>
+
+
 </div>
+
+<!-- ADD AUTHOR-->
+<div class="modal fade" id="addAuthor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <!--HEADER-->
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Add Author</h5>
+        <button class="close" id="close1" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      <!--BODY-->
+      <div class="modal-body">
+        <form>
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="author.name" name="name">
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" required [(ngModel)]="author.address" name="address">
+          </div>
+
+
+        </form>
+        <!--FOOTER-->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btn_podnesi_zahtjev" data-dismiss="modal"
+                  (click)="saveAuthor()">OK
+          </button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

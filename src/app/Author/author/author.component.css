@@ -1,0 +1,21 @@
+.table-striped {
+  margin: auto;
+  width: 65%;
+  border: 1px solid lightgray;
+
+}
+
+.merso {
+
+  position: absolute;
+  left: 330px;
+}
+
+.btn-outline-secondary {
+  width: 145px !important;
+}
+
+td {
+  line-height: 40px;
+
+}

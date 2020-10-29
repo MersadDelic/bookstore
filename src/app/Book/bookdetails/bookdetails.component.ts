@@ -10,7 +10,7 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./bookdetails.component.css']
 })
 export class BookdetailsComponent implements OnInit {
-   book: Book;
+   book: Book[];
 
   constructor(private route: ActivatedRoute,
               private bookService: BookService) {

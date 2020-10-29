@@ -19,6 +19,7 @@ export class BookComponent implements OnInit {
   bookList: Book[];
   authorId: number;
   authorList: Author[] = [];
+  author: Author = new Author();
 
   /*
   bookList: Book[] =
@@ -61,7 +62,7 @@ export class BookComponent implements OnInit {
   }
 
   getBookList(): void {
-    this.bookService.getAllBooks().subscribe(
+    this.bookService.getBookList().subscribe(
       res => {
         this.bookList = res;
       },
@@ -75,11 +76,19 @@ export class BookComponent implements OnInit {
     this.bookService.saveNewBook(this.book)
       .subscribe(
         createdBook => {
-          this.book = createdBook;
+          this.bookList.push(createdBook);
           console.log(createdBook);
         },
         error => console.log(error),
       );
 
   }
+
+  saveAuthor(): void {
+    this.authorService.createAuthor(this.author)
+      .subscribe(
+        createdAuthor => this.authorList.push(createdAuthor),
+        error => console.log(error));
+  }
+
 }

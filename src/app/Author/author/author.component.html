@@ -4,16 +4,24 @@
           data-target="#addAuthor">Add Author
   </button>
 </div>
-<div style="width: 500px; position: relative; left: 25%; top:50px" class="list-group">
-  <h4 class="list-group-item list-group-item-action active">
-    All authors
-  </h4>
-  <div *ngFor="let authors of authorList">
-    <a style="font-size: 20px; font-weight: bold; color: #295b90;"
-       routerLink="/author/{{ authors.id }}" class="list-group-item list-group-item-action">
-      {{ authors.name }}</a>
-  </div>
-</div>
+
+
+<table class="table table-striped" style="margin-top: 50px; width: 40%; border-radius: 10px !Important">
+  <thead>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col"><h4> Author name </h4></th>
+    <th scope="col"><h4> Book title </h4></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let author of authorList">
+    <th scope="row"></th>
+    <td> {{ author.name }}</td>
+    <td> {{ author.address }}</td>
+  </tr>
+  </tbody>
+</table>
 
 <!-- ADD AUTHOR-->
 <div class="modal fade" id="addAuthor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -43,8 +51,6 @@
             <input type="text" class="form-control" id="address" required [(ngModel)]="author.address" name="address">
           </div>
 
-
-
         </form>
         <!--FOOTER-->
         <div class="modal-footer">
@@ -55,4 +61,6 @@
         </div>
       </div>
     </div>
-  </div></div>
+  </div>
+
+</div>

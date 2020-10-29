@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {Author} from './author';
 import {catchError, tap} from 'rxjs/operators';
@@ -8,22 +8,32 @@ import {catchError, tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthorService {
+  author: Author;
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
   constructor(private http: HttpClient) {
   }
 
-  private AUTHOR_API = 'api/author/authors.json';
+  private authorsUrl = 'http://localhost:3000/authors';
 
 
   getAllAuthors(): Observable<Author[]> {
-    return this.http.get<Author[]>(this.AUTHOR_API)
+    return this.http.get<Author[]>(this.authorsUrl)
       .pipe(
-        tap(data => console.log('All: ' + JSON.stringify(data))),
+        tap(data => console.log(data)),
         catchError((err) => throwError(err)));
   }
 
   createAuthor(author: Author): Observable<Author> {
-    return this.http.post<Author>(this.AUTHOR_API, author);
+    return this.http.post<Author>(this.authorsUrl, author, this.httpOptions)
+      .pipe(
+        tap(data => console.log(data)),
+        catchError((err) => throwError(err))
+      );
   }
 }
 

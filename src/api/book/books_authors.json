@@ -1,0 +1,66 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "authorName": "Mato Lovrak",
+      "title": "Vlak u snijegu",
+      "price": 25,
+      "description": "Dječji roman o izletu seoske djece u grad i vlaku zarobljenom u snijegu.",
+      "imageName": "../assets/images/vlak.jpg"
+    },
+    {
+      "id": 2,
+      "authorName": "Mak Dizdar",
+      "title": "Kameni spavač",
+      "price": 15,
+      "description": "“Kameni spavač” Maka Dizdara, izdan 1966. godine, smatra se jednom od najboljih zbirki pjesama 20. stoljeća. .",
+      "imageName": "../assets/images/kameni.jpg"
+    },
+    {
+      "id": 3,
+      "authorName": "Ćamil Sijarić",
+      "title": "Zapisi o gradovima",
+      "price": 18,
+      "description": "Obilazeći gradove kroz ove literarne uratke, čitatelj može zorno predočiti posebnu atmosferu koja grad čini onim što jest. ",
+      "imageName": "../assets/images/zapis.jpg"
+    },
+    {
+      "id": 4,
+      "authorName": "Lewis Carroll",
+      "title": "Alisa u zemlji čuda ",
+      "price": 12,
+      "description": "Alisa u zemlji čudesa jedno je od najpoznatijih djela Lewisa Carrolla, engleskog književnika. ",
+      "imageName": "../assets/images/ali.jpg"
+    },
+    {
+      "id": 5,
+      "authorName": "Mersad Delić",
+      "title": "Angular routing",
+      "price": 12,
+      "description": "There are three fundamental building blocks to creating a route. Import the AppRoutingModule into AppModule and add it to the imports array. The Angular CLI performs this step for you. ",
+      "imageName": "../assets/images/angular-routing.jpg"
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "Mato Lovrak",
+      "address": "Street_1"
+    },
+    {
+      "id": 2,
+      "name": "Ćamil Sijarić",
+      "address": "Street_2"
+    },
+    {
+      "id": 3,
+      "name": "Jack London",
+      "address": "Street_3"
+    },
+    {
+      "id": 4,
+      "name": "Branko Ćopić",
+      "address": "Street_4"
+    }
+  ]
+}

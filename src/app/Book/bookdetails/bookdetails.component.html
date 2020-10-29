@@ -1,3 +1,8 @@
+<div *ngIf="!book" class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+
+
 <div *ngIf="book" class="container bcontent" style="width: 40%">
 
   <hr/>
@@ -28,3 +33,4 @@
     </div>
   </div>
 </div>
+
