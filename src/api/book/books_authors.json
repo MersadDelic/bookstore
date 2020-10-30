@@ -43,24 +43,9 @@
   ],
   "authors": [
     {
-      "id": 1,
-      "name": "Mato Lovrak",
-      "address": "Street_1"
-    },
-    {
-      "id": 2,
-      "name": "Ćamil Sijarić",
-      "address": "Street_2"
-    },
-    {
-      "id": 3,
-      "name": "Jack London",
-      "address": "Street_3"
-    },
-    {
-      "id": 4,
-      "name": "Branko Ćopić",
-      "address": "Street_4"
+      "name": "Ahmed Delic",
+      "address": "Semira Fraste 11",
+      "id": 1
     }
   ]
 }

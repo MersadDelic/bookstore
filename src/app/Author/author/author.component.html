@@ -11,14 +11,20 @@
   <tr>
     <th scope="col"></th>
     <th scope="col"><h4> Author name </h4></th>
-    <th scope="col"><h4> Book title </h4></th>
+    <th scope="col"><h4> Adress </h4></th>
+    <th scope="col"><h4 style="padding-left: 35px"> Actions </h4></th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let author of authorList">
     <th scope="row"></th>
-    <td> {{ author.name }}</td>
-    <td> {{ author.address }}</td>
+    <td><b>{{ author.name }}</b></td>
+    <td><b>{{ author.address }}</b></td>
+    <td>
+      <button style="width: 70px" class="btn btn-outline-info" (click)="editAuthor()">Edit</button>
+      <span style=" padding-left: 10px"> <button style="width: 70px;" class="btn btn-outline-danger"
+                                                 (click)="deleteAuthor(author.id)">Delete</button></span></td>
+
   </tr>
   </tbody>
 </table>

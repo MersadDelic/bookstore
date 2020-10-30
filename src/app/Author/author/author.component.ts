@@ -20,7 +20,7 @@ export class AuthorComponent implements OnInit {
   }
 
   getAuthors(): void {
-    this.authorService.getAllAuthors().subscribe(
+    this.authorService.getAuthorList().subscribe(
       res => {
         this.authorList = res;
       },
@@ -35,4 +35,21 @@ export class AuthorComponent implements OnInit {
         error => console.log(error));
   }
 
+  editAuthor(): void {
+  }
+
+
+  deleteAuthor(id: number): void {
+    this.authorService.deleteAuthor(id)
+      .subscribe(
+        data => {
+          window.location.reload();
+        },
+        err => console.log(err));
+  }
+
+  /*this.authorService.deleteAuthor(id)
+    .subscribe(
+      deletedAuthor => this.authorList.splice(deletedAuthor),
+      error => console.log(error));*/
 }

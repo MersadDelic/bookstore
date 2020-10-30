@@ -11,6 +11,7 @@
     <th scope="col"></th>
     <th scope="col"><h4> Author name </h4></th>
     <th scope="col"><h4> Book title </h4></th>
+    <th scope="col"><h4> Actions </h4></th>
   </tr>
   </thead>
   <tbody>
@@ -21,6 +22,12 @@
         {{ book.authorName }}
       </a>
     <td> {{ book.title }}</td>
+    <td>
+      <button class="btn btn-outline-info" (click)="editAuthor()">Edit</button>
+    </td>
+    <td>
+      <button class="btn btn-outline-danger" (click)="deleteBook(authorId)">Delete</button>
+    </td>
   </tr>
   </tbody>
 </table>
@@ -93,7 +100,7 @@
 
       <!--BODY-->
       <div class="modal-body">
-        <form>
+        <form id="prevent">
 
           <div class="form-group">
             <label for="name">Name</label>
@@ -106,18 +113,17 @@
           </div>
 
 
+          <!--FOOTER-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="prevent1" data-dismiss="modal"
+                    (click)="saveAuthor()">OK
+            </button>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          </div>
         </form>
-        <!--FOOTER-->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="btn_podnesi_zahtjev" data-dismiss="modal"
-                  (click)="saveAuthor()">OK
-          </button>
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        </div>
       </div>
     </div>
   </div>
 
 </div>
-
 

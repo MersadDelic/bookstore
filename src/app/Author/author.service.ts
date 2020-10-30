@@ -21,7 +21,7 @@ export class AuthorService {
   private authorsUrl = 'http://localhost:3000/authors';
 
 
-  getAllAuthors(): Observable<Author[]> {
+  getAuthorList(): Observable<Author[]> {
     return this.http.get<Author[]>(this.authorsUrl)
       .pipe(
         tap(data => console.log(data)),
@@ -30,6 +30,14 @@ export class AuthorService {
 
   createAuthor(author: Author): Observable<Author> {
     return this.http.post<Author>(this.authorsUrl, author, this.httpOptions)
+      .pipe(
+        tap(data => console.log(data)),
+        catchError((err) => throwError(err))
+      );
+  }
+
+  deleteAuthor(id: number): Observable<Author> {
+    return this.http.delete<Author>(this.authorsUrl + `/${id}`, this.httpOptions)
       .pipe(
         tap(data => console.log(data)),
         catchError((err) => throwError(err))

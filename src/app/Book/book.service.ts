@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {Book} from './book';
 import {catchError, tap} from 'rxjs/operators';
+import {Author} from '../Author/author';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class BookService {
   }
 
 
-  saveNewBook(book: Book): Observable<Book> {
+  saveBook(book: Book): Observable<Book> {
     return this.http.post<Book>(this.booksUrl, book, this.httpOptions)
       .pipe(
         tap(data => console.log(data)),
@@ -44,6 +45,14 @@ export class BookService {
     /* .pipe(
        map((books: Book[]) => books.find(book => book.id === id)),
        catchError((err) => throwError(err)));*/
+  }
+
+  deleteBook(id: number): Observable<Author> {
+    return this.http.delete<Author>(this.booksUrl + `/${id}`, this.httpOptions)
+      .pipe(
+        tap(data => console.log(data)),
+        catchError((err) => throwError(err))
+      );
   }
 }
 

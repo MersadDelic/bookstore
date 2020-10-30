@@ -53,7 +53,7 @@ export class BookComponent implements OnInit {
   }
 
   getAuthors(): void {
-    this.authorService.getAllAuthors().subscribe(
+    this.authorService.getAuthorList().subscribe(
       res => {
         this.authorList = res;
       },
@@ -73,7 +73,7 @@ export class BookComponent implements OnInit {
 
   saveBook(): void {
     this.book.authorName = this.authorId;
-    this.bookService.saveNewBook(this.book)
+    this.bookService.saveBook(this.book)
       .subscribe(
         createdBook => {
           this.bookList.push(createdBook);
@@ -89,6 +89,17 @@ export class BookComponent implements OnInit {
       .subscribe(
         createdAuthor => this.authorList.push(createdAuthor),
         error => console.log(error));
+    window.location.reload(false);
+  }
+
+  deleteBook(id: number): void {
+    this.bookService.deleteBook(id)
+      .subscribe(
+        data => {
+          console.log('Successfully deleted author with id =' + `/${id}`);
+        },
+        err => console.log(err));
   }
 
 }
+
