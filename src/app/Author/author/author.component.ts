@@ -20,12 +20,12 @@ export class AuthorComponent implements OnInit {
   }
 
   getAuthors(): void {
-    this.authorService.getAuthorList().subscribe(
-      res => {
-        this.authorList = res;
-      },
-      error1 => console.log(error1)
-    );
+    this.authorService.getAuthorList()
+      .subscribe(res => {
+          this.authorList = res;
+        },
+        error1 => console.log(error1)
+      );
   }
 
   saveAuthor(): void {
@@ -40,16 +40,13 @@ export class AuthorComponent implements OnInit {
 
 
   deleteAuthor(id: number): void {
-    this.authorService.deleteAuthor(id)
-      .subscribe(
-        data => {
-          window.location.reload();
-        },
-        err => console.log(err));
+    if (confirm('Are you sure to delete this author ?')) {
+      this.authorService.deleteAuthor(id)
+        .subscribe(
+          data => {
+            this.authorList.slice(id);
+          },
+          err => console.log(err));
+    }
   }
-
-  /*this.authorService.deleteAuthor(id)
-    .subscribe(
-      deletedAuthor => this.authorList.splice(deletedAuthor),
-      error => console.log(error));*/
 }

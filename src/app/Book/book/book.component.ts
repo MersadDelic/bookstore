@@ -3,6 +3,8 @@ import {Book} from '../book';
 import {BookService} from '../book.service';
 import {Author} from '../../Author/author';
 import {AuthorService} from '../../Author/author.service';
+import {Location} from '@angular/common';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -12,7 +14,8 @@ import {AuthorService} from '../../Author/author.service';
 })
 export class BookComponent implements OnInit {
 
-  constructor(private bookService: BookService, private authorService: AuthorService) {
+  constructor(private bookService: BookService, private authorService: AuthorService,
+              private location: Location, private router: Router) {
   }
 
   book: Book = new Book();
@@ -45,20 +48,18 @@ export class BookComponent implements OnInit {
     ];*/
 
   ngOnInit(): void {
-
-
     this.getBookList();
     this.getAuthors();
 
   }
 
   getAuthors(): void {
-    this.authorService.getAuthorList().subscribe(
-      res => {
-        this.authorList = res;
-      },
-      error1 => console.log(error1)
-    );
+    this.authorService.getAuthorList()
+      .subscribe(res => {
+          this.authorList = res;
+        },
+        error1 => console.log(error1)
+      );
   }
 
   getBookList(): void {
@@ -89,17 +90,13 @@ export class BookComponent implements OnInit {
       .subscribe(
         createdAuthor => this.authorList.push(createdAuthor),
         error => console.log(error));
-    window.location.reload(false);
   }
+
 
   deleteBook(id: number): void {
-    this.bookService.deleteBook(id)
-      .subscribe(
-        data => {
-          console.log('Successfully deleted author with id =' + `/${id}`);
-        },
-        err => console.log(err));
+    if (confirm('Are you sure to delete this book ?')) {
+      this.bookService.deleteBook(id)
+        .subscribe(res => console.log('obrisano'));
+    }
   }
-
 }
-

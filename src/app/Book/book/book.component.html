@@ -1,32 +1,31 @@
 <div class="merso">
-  <button type="button" class="btn btn-info" style="margin-top: 20px;"
+  <button type="button" class="btn btn-info" style="margin-top: 20px; margin-left: -20px"
           data-toggle="modal"
           data-target="#addBook">Add Book
   </button>
 </div>
 
-<table class="table table-striped" style="margin-top: 50px; width: 40%; border-radius: 10px !Important">
+
+<table class="table table-striped" style="margin-top: 50px; width: 45%; border-radius: 10px !Important">
   <thead>
   <tr>
     <th scope="col"></th>
     <th scope="col"><h4> Author name </h4></th>
     <th scope="col"><h4> Book title </h4></th>
-    <th scope="col"><h4> Actions </h4></th>
+    <th colspan="3"><h4 style="padding-left: 100px"> Actions </h4></th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let book of bookList">
     <th scope="row"></th>
-    <td>
-      <a routerLink="/bookList/{{ book.id }}" class="btn btn-outline-secondary">
-        {{ book.authorName }}
-      </a>
+    <td>{{ book.authorName }}</td>
     <td> {{ book.title }}</td>
+    <td><a routerLink="/bookList/{{ book.id }}" class="btn btn-outline-success">Details</a></td>
     <td>
-      <button class="btn btn-outline-info" (click)="editAuthor()">Edit</button>
+      <button class="btn btn-outline-info">Edit</button>
     </td>
     <td>
-      <button class="btn btn-outline-danger" (click)="deleteBook(authorId)">Delete</button>
+      <button class="btn btn-outline-danger" (click)="deleteBook(book.id)">Delete</button>
     </td>
   </tr>
   </tbody>
@@ -54,7 +53,8 @@
 
           <div class="form-group">
             <label for="name1">Book title</label>
-            <input type="text" class="form-control" id="name1" required [(ngModel)]="book.title" name="name1">
+            <input type="text" class="form-control" id="name1" required [(ngModel)]="book.title"
+                   name="name1">
           </div>
           <!------------------------------------------------------------------------------>
           <button type="button" class="btn btn-primary" style="margin-top: 20px;"
@@ -126,4 +126,5 @@
   </div>
 
 </div>
+
 

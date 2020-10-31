@@ -12,6 +12,7 @@ import {BookComponent} from './Book/book/book.component';
 import {HttpClientModule} from '@angular/common/http';
 import {BookdetailsComponent} from './Book/bookdetails/bookdetails.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import {BookdetailsComponent} from './Book/bookdetails/bookdetails.component';
     AuthorComponent,
     PublisherComponent,
     BookComponent,
-    BookdetailsComponent
+    BookdetailsComponent,
+
   ],
     imports: [
       BrowserModule,
@@ -28,6 +30,8 @@ import {BookdetailsComponent} from './Book/bookdetails/bookdetails.component';
       RouterModule,
       HttpClientModule,
       AppRoutingModule,
+
+
     ],
   providers: [],
   bootstrap: [AppComponent]

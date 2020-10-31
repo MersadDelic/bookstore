@@ -5,6 +5,7 @@ import {AuthorComponent} from './Author/author/author.component';
 import {BookComponent} from './Book/book/book.component';
 import {BookdetailsComponent} from './Book/bookdetails/bookdetails.component';
 
+
 const routes: Routes = [
   {path: '', component: DashboardComponent}, // treba HomeComponent//
   {path: 'dashboard', component: DashboardComponent},
@@ -18,6 +19,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [RouterModule.forRoot(routes)],
-  exports: [ RouterModule ],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

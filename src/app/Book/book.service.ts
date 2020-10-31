@@ -24,7 +24,7 @@ export class BookService {
   }
 
   getBookList(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.booksUrl, this.httpOptions)
+    return this.http.get<Book[]>(this.booksUrl)
       .pipe(
         tap(data => console.log(data)),
         catchError((err) => throwError(err)));
@@ -32,19 +32,20 @@ export class BookService {
 
 
   saveBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(this.booksUrl, book, this.httpOptions)
+    return this.http.post<Book>(this.booksUrl, JSON.stringify(book), this.httpOptions)
       .pipe(
-        tap(data => console.log(data)),
+        /*tap(data => console.log(data)),*/
         catchError((err) => throwError(err))
       );
   }
 
 
-  getBookById(id: number): Observable<Book[]> {
-    return this.http.get<Book[]>(this.booksUrl + `/${id}`, this.httpOptions);
-    /* .pipe(
-       map((books: Book[]) => books.find(book => book.id === id)),
-       catchError((err) => throwError(err)));*/
+  getBookById(id: number): Observable<Book> {
+    return this.http.get<Book>(this.booksUrl + `/${id}`)
+      .pipe(
+        tap(book => console.log('Dobavili ste knjigu: ' + book.title + ' autora ' + book.authorName)),
+        catchError((err) => throwError(err))
+      );
   }
 
   deleteBook(id: number): Observable<Author> {
