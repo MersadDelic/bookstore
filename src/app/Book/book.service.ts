@@ -10,7 +10,7 @@ import {Author} from '../Author/author';
 })
 export class BookService {
 
-  private booksUrl = 'http://localhost:3000/books';
+  private booksUrl = 'http://localhost:8080/api/book';
 
   bookList: Book[] = [];
   book: Book;
@@ -43,7 +43,7 @@ export class BookService {
   getBookById(id: number): Observable<Book> {
     return this.http.get<Book>(this.booksUrl + `/${id}`)
       .pipe(
-        tap(book => console.log('Dobavili ste knjigu: ' + book.title + ' autora ' + book.authorName)),
+        tap(book => console.log('Dobavili ste knjigu: ' + book.title + ' čiji je autor ' + book.authorName)),
         catchError((err) => throwError(err))
       );
   }

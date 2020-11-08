@@ -11,9 +11,7 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'authorList', component: AuthorComponent},
   {path: 'bookList', component: BookComponent},
-  {path: 'bookList/:id', component: BookdetailsComponent},
-  /* {path: 'publisher', component: PublisherComponent},*/
-
+  {path: 'bookList/:id', component: BookdetailsComponent}
 ];
 
 @NgModule({

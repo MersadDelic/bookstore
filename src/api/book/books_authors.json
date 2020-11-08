@@ -16,6 +16,11 @@
     {
       "title": "IT Karijera",
       "authorName": "Ahmed",
+      "id": 4
+    },
+    {
+      "title": "Uvod u web dizajn",
+      "authorName": "Ahmed",
       "id": 5
     }
   ],
@@ -24,11 +29,6 @@
       "name": "Ahmed",
       "address": "Semira Fraste 11",
       "id": 1
-    },
-    {
-      "name": "Mersad Delić",
-      "address": "Semira Frašte 11",
-      "id": 2
     }
   ]
 }

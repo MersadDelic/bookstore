@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {Author} from './author';
 import {catchError, tap} from 'rxjs/operators';
@@ -9,16 +9,17 @@ import {catchError, tap} from 'rxjs/operators';
 })
 export class AuthorService {
   author: Author;
-  httpOptions = {
+
+  /*httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  };
+  };*/
 
   constructor(private http: HttpClient) {
   }
 
-  private authorsUrl = 'http://localhost:3000/authors';
+  private authorsUrl = 'http://localhost:8080/api/author';
 
 
   getAuthorList(): Observable<Author[]> {
@@ -29,7 +30,7 @@ export class AuthorService {
   }
 
   createAuthor(author: Author): Observable<Author> {
-    return this.http.post<Author>(this.authorsUrl, author, this.httpOptions)
+    return this.http.post<Author>(this.authorsUrl, author)
       .pipe(
         tap(data => console.log(data)),
         catchError((err) => throwError(err))
@@ -37,7 +38,7 @@ export class AuthorService {
   }
 
   deleteAuthor(id: number): Observable<Author> {
-    return this.http.delete<Author>(this.authorsUrl + `/${id}`, this.httpOptions)
+    return this.http.delete<Author>(this.authorsUrl + `/${id}`)
       .pipe(
         tap(data => console.log(data)),
         catchError((err) => throwError(err))

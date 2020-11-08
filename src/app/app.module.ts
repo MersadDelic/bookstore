@@ -5,7 +5,7 @@ import {HomeComponent} from './home/home.component';
 import {RouterModule} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AppRoutingModule} from './app-routing.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthorComponent} from './Author/author/author.component';
 import {PublisherComponent} from './Publisher/publisher/publisher.component';
 import {BookComponent} from './Book/book/book.component';
@@ -21,18 +21,19 @@ import {BookdetailsComponent} from './Book/bookdetails/bookdetails.component';
     AuthorComponent,
     PublisherComponent,
     BookComponent,
-    BookdetailsComponent,
+    BookdetailsComponent
 
   ],
-    imports: [
-      BrowserModule,
-      FormsModule,
-      RouterModule,
-      HttpClientModule,
-      AppRoutingModule,
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
 
 
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
