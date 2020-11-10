@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {Book} from './book';
 import {catchError, tap} from 'rxjs/operators';
@@ -12,13 +12,13 @@ export class BookService {
 
   private booksUrl = 'http://localhost:8080/api/book';
 
-  bookList: Book[] = [];
-  book: Book;
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
+  /*  bookList: Book[] = [];
+    book: Book;
+    httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };*/
 
   constructor(private http: HttpClient) {
   }
@@ -32,9 +32,9 @@ export class BookService {
 
 
   saveBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(this.booksUrl, JSON.stringify(book), this.httpOptions)
+    return this.http.post<Book>(this.booksUrl, book)
       .pipe(
-        /*tap(data => console.log(data)),*/
+        tap(data => console.log(data)),
         catchError((err) => throwError(err))
       );
   }
@@ -49,7 +49,7 @@ export class BookService {
   }
 
   deleteBook(id: number): Observable<Author> {
-    return this.http.delete<Author>(this.booksUrl + `/${id}`, this.httpOptions)
+    return this.http.delete<Author>(this.booksUrl + `/${id}`)
       .pipe(
         tap(data => console.log(data)),
         catchError((err) => throwError(err))

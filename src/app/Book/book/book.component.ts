@@ -78,7 +78,6 @@ export class BookComponent implements OnInit {
       .subscribe(
         createdBook => {
           this.bookList.push(createdBook);
-          console.log(createdBook);
         },
         error => console.log(error),
       );
@@ -96,7 +95,12 @@ export class BookComponent implements OnInit {
   deleteBook(id: number): void {
     if (confirm('Are you sure to delete this book ?')) {
       this.bookService.deleteBook(id)
-        .subscribe(res => console.log('obrisano'));
+        .subscribe(res => {
+            this.getBookList();
+            console.log('obrisano');
+          },
+          err => console.log(err));
     }
   }
 }
+
