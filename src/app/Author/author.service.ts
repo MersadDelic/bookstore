@@ -19,14 +19,25 @@ export class AuthorService {
   constructor(private http: HttpClient) {
   }
 
-  private authorsUrl = 'http://localhost:8080/api/author';
-
+  private authorsUrl = 'http://localhost:9090/api/author';
 
   getAuthorList(): Observable<Author[]> {
     return this.http.get<Author[]>(this.authorsUrl)
       .pipe(
         tap(data => console.log(data)),
         catchError((err) => throwError(err)));
+  }
+
+  getAuthor(id: number): Observable<Author> {
+
+    console.log('dobavljam autora id: ' + id);
+
+    return this.http.get<Author>(this.authorsUrl + `/${id}`)
+      .pipe(
+        tap(data => console.log('dobavljen autor: ' + JSON.stringify(data)),
+          err => console.error('reska pri dobavljanju autora sa id: ' + id)),
+        catchError((err) => throwError(err))
+      );
   }
 
   createAuthor(author: Author): Observable<Author> {

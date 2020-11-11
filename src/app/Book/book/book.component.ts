@@ -18,39 +18,19 @@ export class BookComponent implements OnInit {
               private location: Location, private router: Router) {
   }
 
+  // nova knjiga
   book: Book = new Book();
+  // selectedAuthorId: number;  -- izmijenili smo. pogledaj book.component.html liniju 74
+
+  // sve knjige (tabela)
   bookList: Book[];
-  authorId: number;
+
   authorList: Author[] = [];
   author: Author = new Author();
-
-  /*
-  bookList: Book[] =
-    [
-      {
-        author_name: 'Mato Lovrak',
-        title: 'Vlak u snijegu'
-      },
-      {
-        author_name: 'Mak Dizdar',
-        title: 'Kameni spavač'
-      },
-      {
-        author_name: 'Zapisi o gradovima',
-        title: 'Ćamil Sijarić'
-      },
-      {
-        author_name: 'Lewis Carroll',
-        title: 'Alisa u zemlji čuda '
-      },
-
-
-    ];*/
 
   ngOnInit(): void {
     this.getBookList();
     this.getAuthors();
-
   }
 
   getAuthors(): void {
@@ -67,13 +47,12 @@ export class BookComponent implements OnInit {
       res => {
         this.bookList = res;
       },
-      error1 => console.log(error1)
+      error => console.log(error)
     );
   }
 
-
   saveBook(): void {
-    this.book.authorName = this.authorId;
+    // this.book.authorId = this.selectedAuthorId;  // pogledaj book.component.html liniju 74
     this.bookService.saveBook(this.book)
       .subscribe(
         createdBook => {
@@ -81,7 +60,6 @@ export class BookComponent implements OnInit {
         },
         error => console.log(error),
       );
-
   }
 
   saveAuthor(): void {
@@ -90,7 +68,6 @@ export class BookComponent implements OnInit {
         createdAuthor => this.authorList.push(createdAuthor),
         error => console.log(error));
   }
-
 
   deleteBook(id: number): void {
     if (confirm('Are you sure to delete this book ?')) {
@@ -101,6 +78,30 @@ export class BookComponent implements OnInit {
           },
           err => console.log(err));
     }
+  }
+
+  // vrati autora na osnovu authorId - i u html ako hoces ispisati ime autora, pozoves samo getAuthor(id).name itd...
+  getAuthor(authorId: number): Author {
+    let a: Author;
+    this.authorService.getAuthor(authorId)
+      .subscribe(
+        author => a = author as Author,
+        error => {
+          console.log('id autora: ' + authorId);
+          console.log('greska pri dobavljanju autora id:' + error.error);
+        }
+      );
+    return a;
+  }
+
+  // !!! PROJVERI ZASTO NE RADI KAD SE KORISTI GORNJA METODA !!!
+
+  /* posto si vec dobavio sve autore na pocektu (za potrebe modala kada biras autora)
+     umjesto da zoves api, mozes samo filtrirati listu dobavljenih autora na osnovu authorId
+   */
+
+  getAuthor_v2(authorId: number): Author {
+    return this.authorList.find(a => a.id === authorId);
   }
 }
 
