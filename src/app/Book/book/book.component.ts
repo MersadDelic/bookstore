@@ -14,19 +14,15 @@ import {Router} from '@angular/router';
 })
 export class BookComponent implements OnInit {
 
+
+  book: Book = new Book();
+  bookList: Book[] = [];
+  authorList: Author[] = [];
+  author: Author = new Author();
+
   constructor(private bookService: BookService, private authorService: AuthorService,
               private location: Location, private router: Router) {
   }
-
-  // nova knjiga
-  book: Book = new Book();
-  // selectedAuthorId: number;  -- izmijenili smo. pogledaj book.component.html liniju 74
-
-  // sve knjige (tabela)
-  bookList: Book[];
-
-  authorList: Author[] = [];
-  author: Author = new Author();
 
   ngOnInit(): void {
     this.getBookList();
@@ -51,15 +47,15 @@ export class BookComponent implements OnInit {
     );
   }
 
-  saveBook(): void {
-    // this.book.authorId = this.selectedAuthorId;  // pogledaj book.component.html liniju 74
-    this.bookService.saveBook(this.book)
-      .subscribe(
-        createdBook => {
-          this.bookList.push(createdBook);
-        },
-        error => console.log(error),
-      );
+  saveBook(): any {
+    /* const book = new Book();
+     book.title = this.bookForm.value.title;
+     book.price = this.bookForm.value.price;*/
+    this.bookService.saveBook(this.book).subscribe(
+      createdBook => {
+        this.bookList.push(createdBook);
+      },
+      err => console.log(err));
   }
 
   saveAuthor(): void {
@@ -81,18 +77,18 @@ export class BookComponent implements OnInit {
   }
 
   // vrati autora na osnovu authorId - i u html ako hoces ispisati ime autora, pozoves samo getAuthor(id).name itd...
-  getAuthor(authorId: number): Author {
-    let a: Author;
-    this.authorService.getAuthor(authorId)
-      .subscribe(
-        author => a = author as Author,
-        error => {
-          console.log('id autora: ' + authorId);
-          console.log('greska pri dobavljanju autora id:' + error.error);
-        }
-      );
-    return a;
-  }
+  /*  getAuthor(authorId: number): Author {
+      let a: Author;
+      this.authorService.getAuthor(authorId)
+        .subscribe(
+          author => a = author as Author,
+          error => {
+            console.log('id autora: ' + authorId);
+            console.log('greska pri dobavljanju autora id:' + error.error);
+          }
+        );
+      return a;
+    }*/
 
   // !!! PROJVERI ZASTO NE RADI KAD SE KORISTI GORNJA METODA !!!
 

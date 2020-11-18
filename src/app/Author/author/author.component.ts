@@ -45,11 +45,11 @@ export class AuthorComponent implements OnInit {
   }*/
 
   saveAuthor(): any {
-    const author = new Author();
+    /*const author = new Author();
     author.name = this.authorForm.value.name;
-    author.address = this.authorForm.value.address;
+    author.address = this.authorForm.value.address;*/
 
-    this.authorService.createAuthor(author).subscribe(
+    this.authorService.createAuthor(this.author).subscribe(
       createdAuthor => {
         this.authorList.push(createdAuthor);
       },

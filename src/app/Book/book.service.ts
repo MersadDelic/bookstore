@@ -10,7 +10,7 @@ import {Author} from '../Author/author';
 })
 export class BookService {
 
-  private booksUrl = 'http://localhost:9090/api/book';
+  private booksUrl = 'http://localhost:8080/api/book';
 
   /*  bookList: Book[] = [];
     book: Book;

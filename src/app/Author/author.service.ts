@@ -19,7 +19,7 @@ export class AuthorService {
   constructor(private http: HttpClient) {
   }
 
-  private authorsUrl = 'http://localhost:9090/api/author';
+  private authorsUrl = 'http://localhost:8080/api/author';
 
   getAuthorList(): Observable<Author[]> {
     return this.http.get<Author[]>(this.authorsUrl)
@@ -55,5 +55,7 @@ export class AuthorService {
         catchError((err) => throwError(err))
       );
   }
+
+
 }
 
