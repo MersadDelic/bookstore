@@ -1,5 +1,6 @@
 <div class="merso">
-  <button type="button" class="btn btn-info" style="margin-top: 20px; margin-left: -20px"
+  <button (click)="showAutors()"
+          type="button" class="btn btn-info" style="margin-top: 20px; margin-left: -20px"
           data-toggle="modal"
           data-target="#addBook">Add Book
   </button>
@@ -21,7 +22,7 @@
     <th scope="row"></th>
     <td> {{ book.title }}</td>
     <td> {{ book.price }}</td>
-    <td>{{ getAuthor(book.author.id).name }}</td>
+    <td>{{ getAuthor(book.author.id)}}</td>
     <td><a routerLink="/bookList/{{ book.id }}" class="btn btn-outline-success">Details</a></td>
     <td>
       <button class="btn btn-outline-info">Edit</button>

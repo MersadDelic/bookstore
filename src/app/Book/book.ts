@@ -7,7 +7,7 @@ export class Book {
   price?: string;
   description?: string;
   imageName?: string;
-  author?: {id: number};  // ovo smo u backendu promijenili - da vraca samo id autora
+  author?: { id: number };
 
   constructor() {
     this.author = {id: null};

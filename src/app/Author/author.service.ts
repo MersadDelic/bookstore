@@ -30,7 +30,7 @@ export class AuthorService {
 
   getAuthor(id: number): Observable<Author> {
 
-    console.log('dobavljam autora id: ' + id);
+  /*  console.log('dobavljam autora id: ' + id);*/
 
     return this.http.get<Author>(this.authorsUrl + `/${id}`)
       .pipe(
