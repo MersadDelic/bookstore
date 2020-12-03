@@ -24,9 +24,23 @@ export class BookComponent implements OnInit {
               private location: Location, private router: Router) {
   }
 
+  /*selecetdFile: File;
+  onFileUpload(event) {
+    this.selecetdFile = event.target.files[0];
+  }
+  OnUploadFile() {
+/!*!//Upload file here send a binary data*!/
+    this.bookService.uploadImage(this.selecetdFile).subscribe(
+      createdImage => {
+        this.book.push(createdImage);
+      },
+      err => console.log(err));
+  }*/
+
   ngOnInit(): void {
-    this.getBookList();
     this.getAuthors();
+    this.getBookList();
+
   }
 
   getAuthors(): void {
@@ -96,7 +110,7 @@ export class BookComponent implements OnInit {
      umjesto da zoves api, mozes samo filtrirati listu dobavljenih autora na osnovu authorId
    */
 
-  getAuthor_v2(authorId: number): Author {
+  getAuthor(authorId: number): Author {
     return this.authorList.find(a => a.id === authorId);
   }
 }

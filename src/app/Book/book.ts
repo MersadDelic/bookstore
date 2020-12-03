@@ -13,10 +13,10 @@ export class Book {
     this.author = {id: null};
   }
 
-/*  static fromJSON(json: any): Book {
+  static fromJSON(json: any): Book {
     const book = Object.create(Book.prototype);
     return Object.assign(book, json, {
-      author: {id: json.author.id }
+      author: {id: json.author.id}
     });
-  }*/
+  }
 }

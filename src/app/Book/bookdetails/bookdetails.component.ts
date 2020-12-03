@@ -3,6 +3,8 @@ import {Book} from '../book';
 import {ActivatedRoute} from '@angular/router';
 import {BookService} from '../book.service';
 import {Subscription} from 'rxjs';
+import {AuthorService} from '../../Author/author.service';
+import {Author} from '../../Author/author';
 
 @Component({
   selector: 'app-bookdetails',
@@ -10,10 +12,12 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./bookdetails.component.css']
 })
 export class BookdetailsComponent implements OnInit {
-   book: Book;
+  book: Book;
+  author: Author;
 
   constructor(private route: ActivatedRoute,
-              private bookService: BookService) {
+              private bookService: BookService,
+              private authorService: AuthorService) {
   }
 
   ngOnInit(): void {
@@ -23,5 +27,12 @@ export class BookdetailsComponent implements OnInit {
   getBookById(): Subscription {
     const id = +this.route.snapshot.paramMap.get('id');
     return this.bookService.getBookById(id).subscribe(book => this.book = book);
+  }
+
+  getAuthorId(): void {
+    this.authorService.getAuthor(this.book.author.id).subscribe(
+      data => this.author = data,
+      error => console.log(error)
+    );
   }
 }

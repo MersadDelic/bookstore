@@ -1,10 +1,7 @@
 <div *ngIf="!book" class="spinner-border" role="status">
   <span class="sr-only">Loading...</span>
 </div>
-
-
 <div *ngIf="book" class="container bcontent" style="width: 40%">
-
   <hr/>
   <div class="card-group">
     <div class="card">
@@ -23,7 +20,7 @@
       <div class="card-body">
         <h5 class="card-title">"{{book.title}}"</h5>
         <hr/>
-        <h6 class="card-text"><b>{{book.authorName}} (Author)</b></h6>
+        <h6 class="card-text"><b>{{book.author.id}} (Author)</b></h6>
 
         <h5 class="card-text1">Book price: {{book.price}} BAM</h5>
       </div>

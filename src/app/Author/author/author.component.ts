@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Author} from '../author';
 import {AuthorService} from '../author.service';
 import {Router} from '@angular/router';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -18,10 +18,10 @@ export class AuthorComponent implements OnInit {
 
   constructor(private authorService: AuthorService, private router: Router) {
 
-    this.authorForm = new FormGroup({
+    /*this.authorForm = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       address: new FormControl(null, [Validators.required]),
-    });
+    });*/
   }
 
   ngOnInit(): void {

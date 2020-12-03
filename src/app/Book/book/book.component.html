@@ -6,7 +6,7 @@
 </div>
 
 
-<table *ngIf="book" class="table table-striped" style="margin-top: 50px; width: 45%; border-radius: 10px !Important">
+<table class="table table-striped" style="margin-top: 50px; width: 45%; border-radius: 10px !Important">
   <thead>
   <tr>
     <th scope="col"></th>
@@ -21,7 +21,7 @@
     <th scope="row"></th>
     <td> {{ book.title }}</td>
     <td> {{ book.price }}</td>
-   <!-- <td>{{ getAuthor_v2(book.author.id).name }}</td>-->
+    <td>{{ getAuthor(book.author.id).name }}</td>
     <td><a routerLink="/bookList/{{ book.id }}" class="btn btn-outline-success">Details</a></td>
     <td>
       <button class="btn btn-outline-info">Edit</button>
@@ -70,6 +70,10 @@
                   data-toggle="modal"
                   data-target="#addAuthor">Add Author
           </button>
+
+          <!--<input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
+          <button (click)="selectFile.click()">Select File</button>
+          <button (click)="OnUploadFile()">Upload</button>-->
           <!------------------------------------------------------------------------------>
           <div class="form-group">
             <label for="author">Or select from the list below</label>
