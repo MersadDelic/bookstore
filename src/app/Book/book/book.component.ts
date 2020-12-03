@@ -5,7 +5,6 @@ import {Author} from '../../Author/author';
 import {AuthorService} from '../../Author/author.service';
 import {Location} from '@angular/common';
 import {Router} from '@angular/router';
-import {Observable} from 'rxjs';
 
 
 @Component({
@@ -15,7 +14,7 @@ import {Observable} from 'rxjs';
 })
 export class BookComponent implements OnInit {
 
-  book: Book = new Book();
+  book: Book = new Book(); // kreiraj praznu knjiga ( u konstruktoru dodijeljujemo praznog autora)
   bookList: Book[] = [];
   authorList: Author[] = [];
   author: Author = new Author();
@@ -38,23 +37,16 @@ export class BookComponent implements OnInit {
   }*/
 
   ngOnInit(): void {
-    this.getAuthor(this.author.id);
-    /*   this.getAuthors();*/
     this.getBookList();
-
-  }
-
-  showAutors(): void {
-    this.getAuthors();
   }
 
   getAuthors(): void {
-    this.authorService.getAuthorList();
-    /*.subscribe(res => {
-        this.authorList = res;
-      },
-      error1 => console.log(error1)
-    );*/
+    this.authorService.getAuthorList()
+      .subscribe(res => {
+          this.authorList = res;
+        },
+        error1 => console.log(error1)
+      );
   }
 
   getBookList(): void {
@@ -88,40 +80,16 @@ export class BookComponent implements OnInit {
     if (confirm('Are you sure to delete this book ?')) {
       this.bookService.deleteBook(id)
         .subscribe(res => {
-            this.getBookList();
+            this.bookList = this.bookList.filter(item => item.id !== id);
             console.log('obrisano');
           },
           err => console.log(err));
     }
   }
 
+}
+
 
   /* getAuthor(authorId: number): Author {
      return this.authorList.find(a => a.id === authorId);
    }*/
-
-  getAuthor(id: number): Observable<Author> {
-    return this.authorService.getAuthor(this.author.id);
-  }
-}
-
-
-// vrati autora na osnovu authorId - i u html ako hoces ispisati ime autora, pozoves samo getAuthor(id).name itd...
-/*  getAuthor(authorId: number): Author {
-    let a: Author;
-    this.authorService.getAuthor(authorId)
-      .subscribe(
-        author => a = author as Author,
-        error => {
-          console.log('id autora: ' + authorId);
-          console.log('greska pri dobavljanju autora id:' + error.error);
-        }
-      );
-    return a;
-  }*/
-
-// !!! PROJVERI ZASTO NE RADI KAD SE KORISTI GORNJA METODA !!!
-
-/* posto si vec dobavio sve autore na pocektu (za potrebe modala kada biras autora)
-   umjesto da zoves api, mozes samo filtrirati listu dobavljenih autora na osnovu authorId
- */

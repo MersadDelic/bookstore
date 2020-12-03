@@ -7,16 +7,10 @@ export class Book {
   price?: string;
   description?: string;
   imageName?: string;
-  author?: { id: number };
+  author: any;
 
   constructor() {
-    this.author = {id: null};
+    this.author = {};  // dodijeli praznog autora
   }
 
-  static fromJSON(json: any): Book {
-    const book = Object.create(Book.prototype);
-    return Object.assign(book, json, {
-      author: {id: json.author.id}
-    });
-  }
 }

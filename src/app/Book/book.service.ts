@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {Book} from './book';
-import {catchError, map, tap} from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 import {Author} from '../Author/author';
 
 @Injectable({
@@ -23,21 +23,11 @@ export class BookService {
   constructor(private http: HttpClient) {
   }
 
-  getBookList(): Observable<any | Book[]> {
+  getBookList(): Observable<Book[]> {
     return this.http.get<Book[]>(this.booksUrl)
-      /*.pipe(
-        tap(data => console.log(data)),
-        catchError((err) => throwError(err)));*/
       .pipe(
-        map(data => {
-          const books: Book[] = [];
-          data.forEach(book => {
-            books.push(Book.fromJSON(book));
-          });
-          return books as Book[];
-        }),
-        catchError((err) => throwError(err))
-      );
+        tap(data => console.log(data)),
+        catchError((err) => throwError(err)));
   }
 
   saveBook(book: Book): Observable<Book> {
@@ -51,9 +41,6 @@ export class BookService {
   getBookById(id: number): Observable<Book> {
     return this.http.get<Book>(this.booksUrl + `/${id}`)
       .pipe(
-        map(data => {
-          return Book.fromJSON(data);
-        }),
         catchError((err) => throwError(err))
       );
   }

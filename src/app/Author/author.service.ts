@@ -29,13 +29,9 @@ export class AuthorService {
   }
 
   getAuthor(id: number): Observable<Author> {
-
-  /*  console.log('dobavljam autora id: ' + id);*/
-
     return this.http.get<Author>(this.authorsUrl + `/${id}`)
       .pipe(
-        tap(data => console.log('dobavljen autor: ' + JSON.stringify(data)),
-          err => console.error('reska pri dobavljanju autora sa id: ' + id)),
+        tap(data => console.log('dobavljen autor: ' + JSON.stringify(data))),
         catchError((err) => throwError(err))
       );
   }
