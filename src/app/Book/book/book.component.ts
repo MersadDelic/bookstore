@@ -81,7 +81,7 @@ export class BookComponent implements OnInit {
       this.bookService.deleteBook(id)
         .subscribe(res => {
             this.bookList = this.bookList.filter(item => item.id !== id);
-            console.log('obrisano');
+            console.log('obrisana knjiga');
           },
           err => console.log(err));
     }
