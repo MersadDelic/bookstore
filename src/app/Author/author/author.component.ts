@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Author} from '../author';
-import {AuthorService} from '../author.service';
+import {Author} from '../../models/author';
+import {AuthorService} from '../../services/author.service';
 import {Router} from '@angular/router';
 import {FormGroup} from '@angular/forms';
 

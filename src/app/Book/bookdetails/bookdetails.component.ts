@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Book} from '../book';
+import {Book} from '../../models/book';
 import {ActivatedRoute} from '@angular/router';
-import {BookService} from '../book.service';
+import {BookService} from '../../services/book.service';
 import {Subscription} from 'rxjs';
-import {AuthorService} from '../../Author/author.service';
-import {Author} from '../../Author/author';
+import {AuthorService} from '../../services/author.service';
+import {Author} from '../../models/author';
 
 @Component({
   selector: 'app-bookdetails',

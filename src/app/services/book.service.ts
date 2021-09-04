@@ -1,19 +1,20 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {Book} from './book';
+import {Book} from '../models/book';
 import {catchError, tap} from 'rxjs/operators';
-import {Author} from '../Author/author';
+import {Author} from '../models/author';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
-  private booksUrl = 'http://localhost:8080/api/book';
+  // private booksUrl = 'http://localhost:8080/api/book';
+  private booksUrl = 'http://localhost:3000/books';
 
   /*  bookList: Book[] = [];
-    book: Book;
+    book-list: Book;
     httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

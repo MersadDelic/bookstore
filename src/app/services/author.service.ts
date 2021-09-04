@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {Author} from './author';
+import {Author} from '../models/author';
 import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
@@ -19,7 +19,8 @@ export class AuthorService {
   constructor(private http: HttpClient) {
   }
 
-  private authorsUrl = 'http://localhost:8080/api/author';
+  // private authorsUrl = 'http://localhost:8080/api/author';
+  private authorsUrl = 'http://localhost:3000/authors';
 
   getAuthorList(): Observable<Author[]> {
     return this.http.get<Author[]>(this.authorsUrl)

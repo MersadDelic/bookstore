@@ -1,3 +1,5 @@
+import {Author} from './author';
+
 export class Book {
   id?: number;
   ISBN?: string;
@@ -7,10 +9,10 @@ export class Book {
   price?: string;
   description?: string;
   imageName?: string;
-  author: any;
+  author?: Author;
 
   constructor() {
-    this.author = {};  // dodijeli praznog autora
+    this.author = {address: '', name: ''};  // dodijeli praznog autora
   }
 
 }

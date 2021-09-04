@@ -1,18 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {Book} from '../book';
-import {BookService} from '../book.service';
-import {Author} from '../../Author/author';
-import {AuthorService} from '../../Author/author.service';
+import {Book} from '../../../models/book';
+import {BookService} from '../../../services/book.service';
+import {Author} from '../../../models/author';
+import {AuthorService} from '../../../services/author.service';
 import {Location} from '@angular/common';
 import {Router} from '@angular/router';
 
-
 @Component({
-  selector: 'app-book',
-  templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css']
+  selector: 'app-book-list',
+  templateUrl: './book-list.component.html',
+  styleUrls: ['./book-list.component.css']
 })
-export class BookComponent implements OnInit {
+export class BookListComponent implements OnInit {
 
   book: Book = new Book(); // kreiraj praznu knjiga ( u konstruktoru dodijeljujemo praznog autora)
   bookList: Book[] = [];
@@ -31,7 +30,7 @@ export class BookComponent implements OnInit {
 /!*!//Upload file here send a binary data*!/
     this.bookService.uploadImage(this.selecetdFile).subscribe(
       createdImage => {
-        this.book.push(createdImage);
+        this.book-list.push(createdImage);
       },
       err => console.log(err));
   }*/
@@ -59,9 +58,9 @@ export class BookComponent implements OnInit {
   }
 
   saveBook(): any {
-    /* const book = new Book();
-     book.title = this.bookForm.value.title;
-     book.price = this.bookForm.value.price;*/
+    /* const book-list = new Book();
+     book-list.title = this.bookForm.value.title;
+     book-list.price = this.bookForm.value.price;*/
     this.bookService.saveBook(this.book).subscribe(
       createdBook => {
         this.bookList.push(createdBook);
@@ -77,7 +76,7 @@ export class BookComponent implements OnInit {
   }
 
   deleteBook(id: number): void {
-    if (confirm('Are you sure to delete this book ?')) {
+    if (confirm('Are you sure to delete this book-list ?')) {
       this.bookService.deleteBook(id)
         .subscribe(res => {
             this.bookList = this.bookList.filter(item => item.id !== id);
@@ -88,7 +87,6 @@ export class BookComponent implements OnInit {
   }
 
 }
-
 
   /* getAuthor(authorId: number): Author {
      return this.authorList.find(a => a.id === authorId);

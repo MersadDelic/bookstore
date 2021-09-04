@@ -1,0 +1,5 @@
+<div class="cart-item">
+  <span>{{cartItem.bookName}}</span> x
+  <span>{{cartItem.quantity}}</span>:
+  <strong>{{ (cartItem.quantity * cartItem.price) | currency:'USD'}}</strong>
+</div>

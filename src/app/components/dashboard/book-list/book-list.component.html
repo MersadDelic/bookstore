@@ -1,6 +1,7 @@
+<!--
 <div class="merso">
   <button (click)="getAuthors()"
-          type="button" class="btn btn-info" style="margin-top: 20px; margin-left: -20px"
+          type="button" class="btn btn-info"
           data-toggle="modal"
           data-target="#addBook">Add Book
   </button>
@@ -22,7 +23,7 @@
     <th scope="row"></th>
     <td> {{ book.title }}</td>
     <td> {{ book.price }}</td>
-    <td>{{  book.author.name}}</td>
+    <td>{{  book.author.name }}</td>
     <td><a routerLink="/bookList/{{ book.id }}" class="btn btn-outline-success">Details</a></td>
     <td>
       <button class="btn btn-outline-info">Edit</button>
@@ -35,14 +36,14 @@
 </table>
 
 
-<!-- ADD BOOK-->
+&lt;!&ndash; ADD BOOK&ndash;&gt;
 
 <div class="modal fade" id="addBook" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
-      <!--HEADER-->
+      &lt;!&ndash;HEADER&ndash;&gt;
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add New Book</h5>
         <button class="close" id="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -50,7 +51,7 @@
         </button>
       </div>
 
-      <!--BODY-->
+      &lt;!&ndash;BODY&ndash;&gt;
       <div class="modal-body">
         <form>
 
@@ -66,16 +67,16 @@
                    name="price">
           </div>
 
-          <!------------------------------------------------------------------------------>
+          &lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;
           <button type="button" class="btn btn-primary" style="margin-top: 20px;"
                   data-toggle="modal"
                   data-target="#addAuthor">Add Author
           </button>
 
-          <!--<input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
+          &lt;!&ndash;<input style="display: none" type="file" (change)="onFileUpload($event)" #selectFile>
           <button (click)="selectFile.click()">Select File</button>
-          <button (click)="OnUploadFile()">Upload</button>-->
-          <!------------------------------------------------------------------------------>
+          <button (click)="OnUploadFile()">Upload</button>&ndash;&gt;
+          &lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;
           <div class="form-group">
             <label for="author">Or select from the list below</label>
             <select [(ngModel)]="book.author.id" class="form-control" name="author" id="author">
@@ -84,7 +85,7 @@
           </div>
 
         </form>
-        <!--FOOTER-->
+        &lt;!&ndash;FOOTER&ndash;&gt;
         <div class="modal-footer">
           <button type="button" class="btn btn-info" id="btn" data-dismiss="modal"
                   (click)="saveBook()">Save
@@ -98,13 +99,13 @@
 
 </div>
 
-<!-- ADD AUTHOR-->
+&lt;!&ndash; ADD AUTHOR&ndash;&gt;
 <div class="modal fade" id="addAuthor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
-      <!--HEADER-->
+      &lt;!&ndash;HEADER&ndash;&gt;
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel1">Add Author</h5>
         <button class="close" id="close1" type="button" data-dismiss="modal" aria-label="Close">
@@ -112,7 +113,7 @@
         </button>
       </div>
 
-      <!--BODY-->
+      &lt;!&ndash;BODY&ndash;&gt;
       <div class="modal-body">
         <form id="prevent">
 
@@ -127,7 +128,7 @@
           </div>
 
 
-          <!--FOOTER-->
+          &lt;!&ndash;FOOTER&ndash;&gt;
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" id="prevent1" data-dismiss="modal"
                     (click)="saveAuthor()">OK
@@ -140,5 +141,11 @@
   </div>
 
 </div>
+-->
 
 
+<div class="row">
+  <div class="col-md-4" *ngFor="let book of bookList">
+    <app-book-item [book]="book"></app-book-item>
+  </div>
+</div>

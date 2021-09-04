@@ -1,16 +1,17 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {DashboardComponent} from './dashboard/dashboard.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {AuthorComponent} from './Author/author/author.component';
-import {BookComponent} from './Book/book/book.component';
+import {BookListComponent} from './components/dashboard/book-list/book-list.component';
 import {BookdetailsComponent} from './Book/bookdetails/bookdetails.component';
+import {AppComponent} from './app.component';
 
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent}, // treba HomeComponent//
+  {path: '', component: AppComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'authorList', component: AuthorComponent},
-  {path: 'bookList', component: BookComponent},
+  {path: 'bookList', component: BookListComponent},
   {path: 'bookList/:id', component: BookdetailsComponent}
 ];
 
@@ -20,3 +21,4 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
+

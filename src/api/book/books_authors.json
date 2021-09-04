@@ -1,7 +1,7 @@
 {
   "books": [
     {
-      "id": 2,
+      "id": 1,
       "authorName": "Mak Dizdar",
       "title": "Kameni spavač",
       "price": 15,
@@ -9,19 +9,20 @@
       "imageName": "../assets/images/kameni.jpg"
     },
     {
-      "title": "IT Karijera",
-      "authorName": "Mersad Delić",
-      "id": 3
+      "id": 2,
+      "authorName": "Mersad Delic",
+      "title": "Bosna",
+      "price": 35,
+      "description": "“Prelijepo kazivanje o najljepsim mjestima u nasoj divnoj domovini. .",
+      "imageName": "../assets/images/zapis.jpg"
     },
     {
-      "title": "IT Karijera",
-      "authorName": "Ahmed",
-      "id": 4
-    },
-    {
-      "title": "Uvod u web dizajn",
-      "authorName": "Ahmed",
-      "id": 5
+      "id": 3,
+      "authorName": "Ahmed Delic",
+      "title": "Igra s kamionima",
+      "price": 20,
+      "description": "“Zanimljiva prica gdje autor detaljno opisuje djeciju igru auticima i kamioncicima u pijesku. .",
+      "imageName": "../assets/images/truck.webp"
     }
   ],
   "authors": [
@@ -29,6 +30,13 @@
       "name": "Ahmed",
       "address": "Semira Fraste 11",
       "id": 1
+    },
+    {
+      "name": "hrehre",
+      "address": "hrehre",
+      "id": 2
     }
+  ],
+  "cart": [
   ]
 }
